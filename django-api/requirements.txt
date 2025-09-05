@@ -1,0 +1,30 @@
+# Django TODO API - Requirements
+# Dependencias principales para el desarrollo de la API REST
+# Actualizado con las últimas versiones estables (2024)
+
+# Framework principal - LTS Version
+Django>=5.2.5
+
+# Django REST Framework para APIs - Latest Stable
+djangorestframework>=3.16.1
+
+# Autenticación JWT - Latest Stable
+djangorestframework-simplejwt>=5.5.1
+
+# CORS para permitir requests desde frontend - Updated
+django-cors-headers>=4.4.0
+
+# Filtros avanzados para APIs - Updated
+django-filter>=24.3
+
+# Documentación automática OpenAPI/Swagger - Updated
+drf-spectacular>=0.28.0
+
+# Manejo de variables de entorno - Stable
+python-decouple>=3.8
+
+# Configuración de base de datos desde URL - Latest
+dj-database-url>=2.1.0
+
+# Driver PostgreSQL para producción - Updated
+psycopg2-binary>=2.9.9
