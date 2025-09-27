@@ -1,0 +1,46 @@
+[
+  {
+    "model": "authentication.role",
+    "pk": 1,
+    "fields": {
+      "nombre": "Administrador",
+      "descripcion": "Acceso completo al sistema",
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": 2,
+    "fields": {
+      "nombre": "Técnico",
+      "descripcion": "Acceso a funciones técnicas y servicios",
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": 3,
+    "fields": {
+      "nombre": "Vendedor",
+      "descripcion": "Acceso a ventas y clientes",
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "authentication.role",
+    "pk": 4,
+    "fields": {
+      "nombre": "Supervisor",
+      "descripcion": "Supervisión de operaciones y reportes",
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  }
+]

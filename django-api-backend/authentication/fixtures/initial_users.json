@@ -1,0 +1,26 @@
+[
+  {
+    "model": "authentication.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$admin123$admin123",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Administrador",
+      "last_name": "Sistema",
+      "email": "admin@todoapi.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-01-01T00:00:00Z",
+      "dni": "12345678",
+      "telefono": "987654321",
+      "direccion": "Av. Principal 123",
+      "fecha_nacimiento": "1990-01-01",
+      "genero": "M",
+      "estado_civil": "S",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

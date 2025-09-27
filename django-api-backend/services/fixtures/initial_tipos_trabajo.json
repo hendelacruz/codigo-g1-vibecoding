@@ -1,0 +1,106 @@
+[
+  {
+    "model": "services.tipotrabajo",
+    "pk": 1,
+    "fields": {
+      "nombre": "Reparación de Pantalla",
+      "descripcion": "Cambio y reparación de pantallas de dispositivos móviles",
+      "precio_base": "150.00",
+      "tiempo_estimado": 120,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 2,
+    "fields": {
+      "nombre": "Cambio de Batería",
+      "descripcion": "Reemplazo de batería en dispositivos móviles",
+      "precio_base": "80.00",
+      "tiempo_estimado": 60,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 3,
+    "fields": {
+      "nombre": "Reparación de Puerto de Carga",
+      "descripcion": "Reparación o cambio del puerto de carga",
+      "precio_base": "100.00",
+      "tiempo_estimado": 90,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 4,
+    "fields": {
+      "nombre": "Liberación de Equipo",
+      "descripcion": "Liberación de dispositivos móviles por IMEI",
+      "precio_base": "50.00",
+      "tiempo_estimado": 30,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 5,
+    "fields": {
+      "nombre": "Formateo y Configuración",
+      "descripcion": "Formateo completo y configuración inicial del dispositivo",
+      "precio_base": "40.00",
+      "tiempo_estimado": 45,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 6,
+    "fields": {
+      "nombre": "Reparación de Cámara",
+      "descripcion": "Reparación o cambio de cámara frontal o posterior",
+      "precio_base": "120.00",
+      "tiempo_estimado": 75,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 7,
+    "fields": {
+      "nombre": "Reparación de Audio",
+      "descripcion": "Reparación de altavoces, micrófono o jack de audio",
+      "precio_base": "90.00",
+      "tiempo_estimado": 60,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "services.tipotrabajo",
+    "pk": 8,
+    "fields": {
+      "nombre": "Diagnóstico General",
+      "descripcion": "Diagnóstico completo del dispositivo para identificar fallas",
+      "precio_base": "25.00",
+      "tiempo_estimado": 30,
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z",
+      "fecha_actualizacion": "2024-01-01T00:00:00Z"
+    }
+  }
+]

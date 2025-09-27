@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión e Inventario - Presentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #00d4ff, #5b73ff, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(91, 115, 255, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #5b73ff;
+        }
+
+        .slide p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(91, 115, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .tech-card:hover::before {
+            left: 100%;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(91, 115, 255, 0.2);
+            border-color: #5b73ff;
+        }
+
+        .tech-card h4 {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .tech-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, rgba(91, 115, 255, 0.1), rgba(0, 212, 255, 0.1));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .module-card h4 {
+            font-size: 1.3rem;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .features-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 1.2rem;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(91, 115, 255, 0.3);
+            border-color: #5b73ff;
+            transform: translateY(-2px);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .highlight {
+            color: #ff6b9d;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .vision-box {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(91, 115, 255, 0.1));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">7</span>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Título Principal -->
+        <div class="slide active">
+            <h1>SISTEMA DE GESTIÓN E INVENTARIO</h1>
+            <p class="subtitle">Solución Integral para Gestión de Dispositivos GPS y Control de Inventario</p>
+            <div class="vision-box">
+                <h3>Tecnología Moderna • Arquitectura Escalable • Experiencia de Usuario Superior</h3>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Módulos Principales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Tecnologías Implementadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">TypeScript Coverage</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Stack Tecnológico -->
+        <div class="slide">
+            <h2>Stack Tecnológico</h2>
+            <p class="subtitle">Tecnologías de vanguardia para una solución robusta y escalable</p>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Frontend Core</h4>
+                    <p><strong>React 19</strong> con hooks modernos<br>
+                    <strong>TypeScript 5+</strong> tipado estricto<br>
+                    <strong>Vite 5</strong> build tool optimizado</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>Estado & Datos</h4>
+                    <p><strong>Redux Toolkit</strong> gestión de estado<br>
+                    <strong>TanStack Query</strong> server state<br>
+                    <strong>Redux Persist</strong> persistencia</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>UI & Styling</h4>
+                    <p><strong>Tailwind CSS v4</strong> utility-first<br>
+                    <strong>Radix UI</strong> componentes accesibles<br>
+                    <strong>Framer Motion</strong> animaciones</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>Formularios & Validación</h4>
+                    <p><strong>React Hook Form</strong> performance<br>
+                    <strong>Zod</strong> validación de schemas<br>
+                    <strong>Hookform Resolvers</strong> integración</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>Herramientas</h4>
+                    <p><strong>Axios</strong> cliente HTTP<br>
+                    <strong>Date-fns</strong> manejo de fechas<br>
+                    <strong>React Router</strong> navegación</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>Testing & Quality</h4>
+                    <p><strong>Vitest</strong> testing framework<br>
+                    <strong>Testing Library</strong> testing utilities<br>
+                    <strong>ESLint</strong> code quality</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Módulos Desarrollados -->
+        <div class="slide">
+            <h2>Módulos Desarrollados</h2>
+            <p class="subtitle">Arquitectura modular con separación clara de responsabilidades</p>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>🔐 Autenticación</h4>
+                    <p>Sistema completo de autenticación JWT con refresh tokens, roles y permisos, rutas protegidas y manejo seguro de credenciales.</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>📦 Inventario</h4>
+                    <p>Gestión completa de dispositivos GPS, tarjetas SIM y otros productos con CRUD completo, control de stock y alertas.</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>👥 Entidades</h4>
+                    <p>Administración de clientes, proveedores y unidades vehiculares con relaciones complejas y validaciones robustas.</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>🛠️ Servicios</h4>
+                    <p>Gestión de servicios técnicos, tipos de trabajo, estados de servicios y asignación de técnicos a unidades.</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>📊 Dashboard</h4>
+                    <p>Panel de control con KPIs en tiempo real, estadísticas de ventas, reportes y visualización de datos.</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>🎨 UI Components</h4>
+                    <p>Biblioteca de componentes reutilizables con diseño consistente, accesibilidad y variantes configurables.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Visión y Enfoque -->
+        <div class="slide">
+            <h2>Visión y Enfoque del Proyecto</h2>
+            
+            <div class="vision-box">
+                <h3>🎯 Misión</h3>
+                <p>Desarrollar una solución integral de gestión e inventario que optimice los procesos operativos mediante tecnología moderna, proporcionando una experiencia de usuario excepcional y escalabilidad empresarial.</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🚀 Enfoque Tecnológico</h4>
+                    <p>Implementación de las mejores prácticas modernas con React, TypeScript estricto y arquitectura escalable basada en módulos.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>👤 Experiencia de Usuario</h4>
+                    <p>Diseño intuitivo y responsive con componentes accesibles, navegación fluida y feedback inmediato al usuario.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>🔧 Mantenibilidad</h4>
+                    <p>Código limpio, documentado y testeable con separación clara de responsabilidades y patrones consistentes.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>📈 Escalabilidad</h4>
+                    <p>Arquitectura modular preparada para crecimiento, con lazy loading, code splitting y optimizaciones de performance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Descripción Detallada de Módulos -->
+        <div class="slide">
+            <h2>Descripción Detallada de Módulos</h2>
+            
+            <div class="features-list">
+                <h3>🔐 Módulo de Autenticación</h3>
+                <ul>
+                    <li><strong>JWT con Refresh Tokens:</strong> Autenticación segura con renovación automática</li>
+                    <li><strong>Sistema de Roles:</strong> Control granular de permisos por usuario</li>
+                    <li><strong>Rutas Protegidas:</strong> Acceso controlado basado en autenticación y roles</li>
+                    <li><strong>Persistencia Segura:</strong> Estado de sesión mantenido de forma segura</li>
+                </ul>
+                
+                <h3>📦 Módulo de Inventario</h3>
+                <ul>
+                    <li><strong>Gestión de GPS:</strong> Control completo de dispositivos GPS con estados y asignaciones</li>
+                    <li><strong>Tarjetas SIM:</strong> Administración de SIM cards con operadores y planes</li>
+                    <li><strong>Control de Stock:</strong> Alertas automáticas de stock bajo y reposición</li>
+                    <li><strong>Trazabilidad:</strong> Historial completo de movimientos y cambios</li>
+                </ul>
+                
+                <h3>👥 Módulo de Entidades</h3>
+                <ul>
+                    <li><strong>Gestión de Clientes:</strong> Información completa con historial de servicios</li>
+                    <li><strong>Proveedores:</strong> Base de datos de proveedores con evaluaciones</li>
+                    <li><strong>Unidades Vehiculares:</strong> Registro detallado de vehículos y equipos</li>
+                    <li><strong>Relaciones Complejas:</strong> Vínculos entre entidades con validaciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: Características Técnicas -->
+        <div class="slide">
+            <h2>Características Técnicas Destacadas</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🎯 TypeScript Estricto</h4>
+                    <p>100% de cobertura TypeScript sin uso de 'any', tipado estricto en toda la aplicación para máxima seguridad de tipos.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>🔄 Estado Reactivo</h4>
+                    <p>Redux Toolkit con persistencia automática, TanStack Query para server state y optimizaciones de re-renders.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>🎨 UI Moderna</h4>
+                    <p>Componentes Radix UI accesibles, Tailwind CSS v4, diseño responsive y modo oscuro implementado.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>📱 Responsive Design</h4>
+                    <p>Diseño mobile-first, adaptable a todos los dispositivos con navegación optimizada para touch.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>⚡ Performance</h4>
+                    <p>Lazy loading, code splitting, memoización inteligente y optimizaciones de bundle size.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>🛡️ Seguridad</h4>
+                    <p>Validaciones robustas con Zod, sanitización de datos y manejo seguro de credenciales.</p>
+                </div>
+            </div>
+            
+            <div class="vision-box">
+                <h3>🏗️ Arquitectura Enterprise</h3>
+                <p>Estructura modular escalable • Separación de responsabilidades • Patrones de diseño consistentes • Testing automatizado</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Mejoras Futuras -->
+        <div class="slide">
+            <h2>Roadmap y Mejoras Futuras</h2>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>🔮 Fase 1 - Corto Plazo</h4>
+                    <p><strong>Testing Completo:</strong> Implementación de tests unitarios y de integración<br>
+                    <strong>Storybook:</strong> Documentación visual de componentes<br>
+                    <strong>PWA:</strong> Aplicación web progresiva con offline support</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>🚀 Fase 2 - Mediano Plazo</h4>
+                    <p><strong>Módulo de Ventas:</strong> Sistema completo de facturación y ventas<br>
+                    <strong>Reportes Avanzados:</strong> Dashboard con analytics y métricas<br>
+                    <strong>Notificaciones Push:</strong> Alertas en tiempo real</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>🌟 Fase 3 - Largo Plazo</h4>
+                    <p><strong>IA y Machine Learning:</strong> Predicciones de stock y demanda<br>
+                    <strong>API Móvil:</strong> Aplicación móvil nativa<br>
+                    <strong>Integración IoT:</strong> Conectividad con dispositivos GPS</p>
+                </div>
+                
+                <div class="module-card">
+                    <h4>🔧 Optimizaciones Técnicas</h4>
+                    <p><strong>Micro-frontends:</strong> Arquitectura distribuida<br>
+                    <strong>GraphQL:</strong> API más eficiente<br>
+                    <strong>Edge Computing:</strong> Rendimiento global optimizado</p>
+                </div>
+            </div>
+            
+            <div class="vision-box">
+                <h3>🎯 Objetivo Final</h3>
+                <p>Convertir el sistema en la solución líder del mercado para gestión de inventario GPS, con capacidades de IA, integración IoT y escalabilidad global.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Crear partículas animadas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Inicializar partículas
+        createParticles();
+
+        // Auto-advance slides (opcional)
+        // setInterval(nextSlide, 10000); // Cambia cada 10 segundos
+    </script>
+</body>
+</html>

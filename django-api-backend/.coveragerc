@@ -1,0 +1,46 @@
+[run]
+# Archivos a incluir en el análisis
+source = .
+
+# Archivos y directorios a omitir
+omit = 
+    */venv/*
+    */env/*
+    */migrations/*
+    */settings/*
+    */static/*
+    */templates/*
+    manage.py
+    */tests.py
+    */test_*.py
+    */__pycache__/*
+    */node_modules/*
+    .git/*
+    */fixtures/*
+    todoapi/wsgi.py
+    todoapi/asgi.py
+    todoapi/celery.py
+
+[report]
+# Mostrar líneas faltantes
+show_missing = True
+
+# Precisión de porcentajes
+precision = 2
+
+# Omitir archivos completamente vacíos
+skip_empty = True
+
+# Ordenar por porcentaje de coverage
+sort = Cover
+
+[html]
+# Directorio para el reporte HTML
+directory = htmlcov
+
+# Título del reporte
+title = Django API Backend Coverage Report
+
+[xml]
+# Archivo de salida XML para CI/CD
+output = coverage.xml
